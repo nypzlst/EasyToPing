@@ -1,0 +1,24 @@
+{
+  "runtimeOptions": {
+    "tfm": "net7.0",
+    "frameworks": [
+      {
+        "name": "Microsoft.NETCore.App",
+        "version": "7.0.0"
+      },
+      {
+        "name": "Microsoft.WindowsDesktop.App",
+        "version": "7.0.0"
+      }
+    ],
+    "additionalProbingPaths": [
+      "C:\\Users\\nypozalysta\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\nypozalysta\\.nuget\\packages",
+      "C:\\Users\\nypozalysta\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
+      "F:\\VisualStudionWin11\\Shared\\NuGetPackages"
+    ],
+    "configProperties": {
+      "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
+    }
+  }
+}
