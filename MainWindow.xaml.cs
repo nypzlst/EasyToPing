@@ -30,6 +30,9 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            this.Title = "EasyToPing";
+            this.Background = Brushes.GhostWhite;
+            ;
         }
 
         void Button_Click(object sender, RoutedEventArgs e)

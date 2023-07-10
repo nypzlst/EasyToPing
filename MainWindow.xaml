@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="300" Width="420">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="337*"/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Button" HorizontalAlignment="Center" Margin="0,362,0,0" VerticalAlignment="Top" Width="236" Height="39" Click="Button_Click"/>
-        <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="39,122,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Margin="39,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+        <Button Content="Press Button" HorizontalAlignment="Left" Margin="0,192,0,0" VerticalAlignment="Top" Width="344" Height="39" Click="Button_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label x:Name="label1" Content="" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top" Height="26" Width="344" Grid.Column="1" Cursor="" Grid.ColumnSpan="2" />
+        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="344" Height="18" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label Content="Enter website to ping :" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="26" Width="128" Grid.ColumnSpan="2" Grid.Column="1"/>
 
     </Grid>
 </Window>
