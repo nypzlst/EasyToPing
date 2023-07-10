@@ -27,6 +27,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int timeOut = 1000;
         public MainWindow()
         {
             InitializeComponent();
@@ -53,7 +54,6 @@ namespace WpfApp1
                 {
                     Uri url = new(pingText);
                     Ping ping = new();
-                    int timeOut = 1000;
                     PingReply pingReply = ping.Send(url.Host, timeOut);
                     CheckResponse(pingReply, url);
                 }
@@ -63,7 +63,6 @@ namespace WpfApp1
             {
                 if (shortUrl.IsMatch(pingText))
                 {
-                    int timeOut = 1000;
                     PingReply pingReply = new Ping().Send(pingText, timeOut);
                     Uri uri = null;
                     CheckResponse(pingReply,uri, pingText);
@@ -89,7 +88,6 @@ namespace WpfApp1
                 }
                 else if (text != "")
                 {
-                    int timeOut = 1000;
                     label1.Content = $"{text} ping in milliseconds : {new Ping().Send(text, timeOut).RoundtripTime.ToString()}";
                 }
             }
