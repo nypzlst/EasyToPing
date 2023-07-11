@@ -33,7 +33,7 @@ namespace WpfApp1
             InitializeComponent();
             this.Title = "EasyToPing";
             this.Background = Brushes.GhostWhite;
-            ;
+           
         }
 
         void Button_Click(object sender, RoutedEventArgs e)
@@ -46,8 +46,8 @@ namespace WpfApp1
             string? pingText = text.GetLineText(0);
             string longUrlPattern = @"^(https?:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,}(:[0-9]{1,5})?(\/.*)?$";
             string shortUrlPattern = @"[a-zA-Z]+.+[a-zA-Z]";
-            Regex shortUrl = new Regex(shortUrlPattern);
-            Regex longUrl = new Regex(longUrlPattern);
+            Regex shortUrl = new (shortUrlPattern);
+            Regex longUrl = new (longUrlPattern);
             try
             {
                 if (longUrl.IsMatch(pingText))
@@ -64,7 +64,7 @@ namespace WpfApp1
                 if (shortUrl.IsMatch(pingText))
                 {
                     PingReply pingReply = new Ping().Send(pingText, timeOut);
-                    Uri uri = null;
+                    Uri? uri = null;
                     CheckResponse(pingReply,uri, pingText);
                 }
                 else
@@ -82,13 +82,14 @@ namespace WpfApp1
         {
             if (pingReply.Status == IPStatus.Success)
             {
-                if(url!= null)
+                if (url != null)
                 {
-                    label1.Content = $"{url} ping in milliseconds : {new Ping().Send(url.Host).RoundtripTime.ToString()}";
+                    label1.Content = $"{url} ping in milliseconds :{new Ping().Send(url.Host).RoundtripTime} , TTL : {pingReply?.Options?.Ttl} ";
+                   
                 }
-                else if (text != "")
+                else if (text != "" && url== null)
                 {
-                    label1.Content = $"{text} ping in milliseconds : {new Ping().Send(text, timeOut).RoundtripTime.ToString()}";
+                    label1.Content = $"{text} ping in milliseconds : {new Ping().Send(text, timeOut).RoundtripTime} , TTL : {pingReply?.Options?.Ttl}";
                 }
             }
             else if (pingReply.Status == IPStatus.TimedOut)
